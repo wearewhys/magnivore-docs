@@ -1,0 +1,107 @@
+The joins section
+=================
+Joins are used to specify how to collect data from the source database. Joins
+can have four properties: table, on, switch and  conditions.
+
+Table
+#####
+The table from which data will be taken. If it's not the first table, you must
+specify the *on* property.
+
+
+::
+
+    {
+        "mynewtable": {
+            "joins": [
+                {"table": "tablename"}
+            ]
+        }
+    }
+
+On
+##
+The on property is used to specify join condition when retrieving data from
+multiple tables.
+
+::
+
+    {
+        "mynewtable": {
+            "joins": [
+                {"table": "tablename"},
+                {"table": "related_table", "on": "foreignkey_to_tablename"}
+            ]
+        }
+    }
+
+If the table does not have a foreign key, but the data is still related, you
+can specify both columns::
+
+    {
+        "table": "related_table",
+        "on": [
+            "tablename_primary_key",
+            "relatedtable_reference_column"
+        ]
+    }
+
+
+
+Switch
+######
+The switch property allows to set the context back to the original table.
+This is useful when joining three or more tables.
+
+
+::
+
+    {
+        "mynewtable": {
+            "joins": [
+                {"table": "tablename"},
+                {"table": "related_table", "on": "foreignkey_to_tablename"},
+                {
+                    "table::
+
+    {
+        "mynewtable": {
+            "joins": [
+                {"table": "tablename"}
+            ]
+        }
+    }": "yet_another",
+                    "on": "foreignkey_to_tablename",
+                    "switch": true
+                }
+            ]
+        }
+    }
+
+Conditions
+##########
+The conditions that retrieved data must abide. These are translated to where
+queries. For example, to get items with colour equal to blue::
+
+    {
+        "mynewtable": {
+            "joins": [
+                {
+                    "table": "pens",
+                    "conditions": {
+                        "colour": "blue"
+                    }
+                }
+            ]
+        }
+    }
+
+You can specify a different operator. Conditions support *gt*, *not*, *lt*,
+*in* and *isnull* as operators::
+
+    "conditions": {
+        "ink_level": {
+            "operator": "gt",
+            "value": 5
+        }
+    }
