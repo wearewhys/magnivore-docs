@@ -64,15 +64,15 @@ Formats the original value using python's format function.
     "transform": {
         "new_column": {
             "from": "old_column"
-            "format": "Now I am {}",
+            "format": "Now I am {}"
         }
     }
 
 More columns can be specified::
 
     "new_column": {
-        "from": ["old_column", "another_column"]
-        "format": "{} and {} are best friends",
+        "from": ["old_column", "another_column"],
+        "format": "{} and {} are best friends"
     }
 
 
