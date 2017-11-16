@@ -41,6 +41,20 @@ The expression transformation runs a regular expression on the original value.
         }
     }
 
+Factor
+######
+Factor transforms a value multiplying it by a factor.
+
+::
+
+    "transform": {
+        "new_column": {
+            "factor": 2.8,
+            "from": "old_column"
+        }
+    }
+
+
 Format
 ######
 Formats the original value using python's format function.
