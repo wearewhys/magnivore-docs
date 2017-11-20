@@ -1,7 +1,7 @@
 The sources section
 =================
 Sources are used to specify how to collect data from the source database. They
-can have four properties: table, on, switch and  conditions.
+can have four properties: table, on, switch, conditions and aggregation.
 
 Table
 #####
@@ -96,3 +96,23 @@ You can specify a different operator. Conditions support *gt*, *not*, *lt*,
             "value": 5
         }
     }
+
+Aggregation
+###########
+Aggregations can be used instead of condiitions, placing constraints on groups
+of items rather than each::
+
+    "aggregation": {
+        "function": "count",
+        "group": "field",
+        "condition": {
+            "operator": "eq",
+            "value": 1
+        }
+    }
+
+Function, group and condition control the aggregation parameters:
+
+- function: The function to be used to aggregate data. Only count is supported.
+- group: The field on which the aggregation will be performed
+- condition: The condition that the aggregation has to abide
