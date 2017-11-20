@@ -92,7 +92,7 @@ corresponding address, while the old table remains untouched.
    configuration
    usage
    rulesets
-   joins
+   sources
    transform
    sync-track
    cookbook

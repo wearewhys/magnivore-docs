@@ -1,6 +1,6 @@
-The joins section
+The sources section
 =================
-Joins are used to specify how to collect data from the source database. Joins
+Sources are used to specify how to collect data from the source database. They
 can have four properties: table, on, switch and  conditions.
 
 Table
@@ -13,7 +13,7 @@ specify the *on* property.
 
     {
         "mynewtable": {
-            "joins": [
+            "sources": [
                 {"table": "tablename"}
             ]
         }
@@ -28,7 +28,7 @@ multiple tables.
 
     {
         "mynewtable": {
-            "joins": [
+            "sources": [
                 {"table": "tablename"},
                 {"table": "related_table", "on": "foreignkey_to_tablename"}
             ]
@@ -58,21 +58,12 @@ This is useful when joining three or more tables.
 
     {
         "mynewtable": {
-            "joins": [
+            "sources": [
                 {"table": "tablename"},
                 {"table": "related_table", "on": "foreignkey_to_tablename"},
-                {
-                    "table::
-
-    {
-        "mynewtable": {
-            "joins": [
-                {"table": "tablename"}
-            ]
-        }
-    }": "yet_another",
-                    "on": "foreignkey_to_tablename",
-                    "switch": true
+                {"table": "yet_another",
+                  "on": "foreignkey_to_tablename",
+                  "switch": true
                 }
             ]
         }
@@ -85,7 +76,7 @@ queries. For example, to get items with colour equal to blue::
 
     {
         "mynewtable": {
-            "joins": [
+            "sources": [
                 {
                     "table": "pens",
                     "conditions": {
