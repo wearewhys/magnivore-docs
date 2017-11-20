@@ -1,7 +1,8 @@
 The sources section
-=================
-Sources are used to specify how to collect data from the source database. They
-can have four properties: table, on, switch, conditions and aggregation.
+====================
+Sources are used to specify how to collect data from the source database. A
+source has various property that describe which data to get, some are required
+and some are optional. Let's see them.
 
 Table
 #####
@@ -17,6 +18,22 @@ specify the *on* property.
                 {"table": "tablename"}
             ]
         }
+    }
+
+Picks
+#####
+Picks is an optional argument that can be used to specify the columns to select::
+
+    "picks": {
+        "column": true,
+        "other_column": true
+    }
+
+Picks also support selecting by functions. Currently, only sum is supported::
+
+    "picks": {
+        "column": "sum",
+        "other_column": true
     }
 
 On
