@@ -43,7 +43,8 @@ The expression transformation runs a regular expression on the original value.
 
 Factor
 ######
-Factor transforms a value multiplying it by a factor.
+Factor transforms a value multiplying it by a factor. It will always return
+a number of the same type of the original one.
 
 ::
 
@@ -53,6 +54,16 @@ Factor transforms a value multiplying it by a factor.
             "from": "old_column"
         }
     }
+
+
+It's possible to specify a rounding behaviour, using "up" or "down"::
+
+    "new_column": {
+        "factor": 2.8,
+        "round": "up",
+        "from": "old_column"
+    }
+
 
 
 Format
